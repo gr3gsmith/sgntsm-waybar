@@ -1,0 +1,28 @@
+// -*- mode: jsonc -*-
+{
+    "spacing": 10,
+    "margin-top": 4,
+
+    "modules-left": [
+        "custom/power",
+        "hyprland/workspaces"
+    ],
+
+    "modules-right": [
+        "custom/gpu-monitor",
+        // "temperature",
+        "custom/cpu-monitor",
+        "tray",
+        "clock",
+    ],
+
+    // Include module configuration files.
+    "include": [
+        "~/.config/waybar/modules/power.jsonc",
+        "~/.config/waybar/modules/gpu.jsonc",
+        "~/.config/waybar/modules/cpu.jsonc",
+        "~/.config/waybar/modules/tray.jsonc",
+        "~/.config/waybar/modules/clock.jsonc",
+    ],
+}
+

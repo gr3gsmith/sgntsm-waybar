@@ -1,0 +1,7 @@
+{
+    "custom/cpu-monitor": {
+        "exec": "~/.config/waybar/scripts/cpu-monitor.sh",
+        "return-type": "json",
+        "interval": 2
+    }
+}

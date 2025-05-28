@@ -1,0 +1,119 @@
+@import "colours.css";
+
+* {
+  border: none;
+  font-family: "RobotoMono Nerd Font", sans-serif;
+  font-size: 13px;
+  min-height: 0;
+  box-shadow: none;
+  margin: 0 3px;
+}
+
+window#waybar {
+  background: transparent;
+  color: @on_background;
+  padding: 6px 10px;
+  margin: 12px 10px 0px 10px;  /* top gap */
+}
+
+/* === Workspaces as unified pill === */
+#workspaces {
+  background: @surface_container;
+  opacity: 0.9;
+  border-radius: 9999px;
+  padding: 0px;
+  margin: 0 6px;
+}
+
+#workspaces button {
+  background: transparent;
+  color: @on_surface_variant;
+  padding: 6px 10px;
+  border-radius: 9999px;
+  margin: 0;
+  transition: background 0.3s ease, padding 0.3s ease;
+}
+
+#workspaces button:hover {
+  background: @surface_container_highest;
+  color: @primary;
+}
+
+/* Active workspace fills height of pill */
+#workspaces button.active {
+  background: @primary_container;
+  color: @on_primary_container;
+  border-radius: 9999px; /* full height + edges */
+  padding: 6px 20px;
+}
+
+/* ===== Floating Pills ===== */
+#clock,
+/* #temperature, */
+#mpris,
+#tray,
+#custom-gpu-monitor,
+#custom-cpu-monitor,
+#custom-power {
+  background: @surface_container_highest;
+  opacity: 0.9;
+  color: @on_surface;
+  border-radius: 9999px;
+  padding: 6px 14px;
+  margin: 0 5px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Clock */
+#clock {
+  background: @primary_container;
+  color: @on_primary_container;
+}
+
+/* MPRIS */
+#mpris {
+  background: @tertiary_container;
+  color: @on_tertiary_container;
+}
+
+/* Warm temperature class */
+#custom-gpu-monitor.temperature-warm {
+  background: @secondary_container;
+  color: @on_secondary_container;
+}
+
+/* Hot temperature class */
+#custom-gpu-monitor.temperature-hot {
+  background: @error_container;
+  color: @on_error_container;
+}
+
+/* Warm temperature class */
+#custom-cpu-monitor.temperature-warm {
+  background: @secondary_container;
+  color: @on_secondary_container;
+}
+
+/* Hot temperature class */
+#custom-cpu-monitor.temperature-hot {
+  background: @error_container;
+  color: @on_error_container;
+}
+
+/* Tray */
+#tray {
+  background: @surface_container_low;
+  padding: 4px 10px;
+}
+
+/* Power */
+#custom-power {
+  font-family: "Symbols Nerd Font", "JetBrainsMono Nerd Font", sans-serif;
+  background: @error_container;
+  color: @on_error_container;
+}
+
+#custom-power:hover {
+  background: @error;
+  color: @on_error;
+}

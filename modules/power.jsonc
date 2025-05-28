@@ -1,0 +1,8 @@
+{
+    "custom/power": {
+        "format" : "⏻",
+        // "format" : "󰐥",
+		"tooltip": false,
+        "on-click": ".config/wlogout/logout-menu.sh",
+    }
+}

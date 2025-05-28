@@ -1,0 +1,7 @@
+{
+    "custom/gpu-monitor": {
+        "exec": "~/.config/waybar/scripts/gpu-monitor.sh",
+        "return-type": "json",
+        "interval": 2
+    }
+}
