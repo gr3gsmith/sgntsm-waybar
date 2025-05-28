@@ -1,0 +1,1 @@
+# sgntsm-waybar
