@@ -20,10 +20,10 @@ class="temperature-cool"
 icon=""  # Cold icon
 
 # Temperature thresholds and corresponding class/icon
-if [ "$temp" -ge 85 ]; then
+if [ "$temp" -ge 90 ]; then
     class="temperature-hot"
     icon=""
-elif [ "$temp" -ge 60 ]; then
+elif [ "$temp" -ge 70 ]; then
     class="temperature-warm"
     icon=""
 fi
