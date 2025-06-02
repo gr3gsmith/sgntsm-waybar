@@ -55,7 +55,6 @@ window#waybar {
   color: @on_primary_container;
   border-radius: 9999px; /* full height + edges */
   padding: 0px 16px;
-  /* background-clip: padding-box; */
 }
 
 /* ===== Floating Pills ===== */
@@ -72,13 +71,6 @@ window#waybar {
   padding: 3px 14px;
   margin: 0 5px;
   transition: background 0.3s ease, color 0.3s ease;
-}
-
-#clock,
-#mpris,
-#tray,
-#custom-gpu-monitor,
-#custom-cpu-monitor {
   border-style: solid;
   border-width: 2px;
   border-color: @primary_container;
@@ -86,6 +78,8 @@ window#waybar {
 
 /* Clock */
 #clock {
+  color: @tertiary;
+  margin-right: 0px;
 }
 
 /* MPRIS */
@@ -127,11 +121,11 @@ window#waybar {
 /* Power */
 #custom-power {
   font-family: "Symbols Nerd Font", "JetBrainsMono Nerd Font", sans-serif;
-  background: @error_container;
-  color: @on_error_container;
+  color: @tertiary;
+  margin-left: 0px;
 }
 
 #custom-power:hover {
-  background: @error;
-  color: @on_error;
+  background: @primary_container;
+  color: @on_primary_container;
 }
