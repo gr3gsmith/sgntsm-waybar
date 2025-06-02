@@ -5,14 +5,14 @@
 
     "modules-left": [
         "custom/power",
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "tray",
     ],
 
     "modules-right": [
         "custom/gpu-monitor",
         // "temperature",
         "custom/cpu-monitor",
-        "tray",
         "clock",
     ],
 
