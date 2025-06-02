@@ -6,14 +6,12 @@
   font-size: 12px;
   min-height: 0;
   box-shadow: none;
-  margin: 0 3px;
   padding: 0px;
 }
 
 window#waybar {
   background: transparent;
   color: @on_background;
-  margin: 12px 10px 0px 10px;  /* top gap */
 }
 
 /* === Workspaces as unified pill === */
