@@ -26,7 +26,6 @@ window#waybar {
   /* border-width: 2px; */
   /* border-color: @primary_container; */
 
-  color: @error_container;
   background: @surface_container;
   opacity: 1;
   border-radius: 9999px;
@@ -78,7 +77,6 @@ window#waybar {
 
 /* Clock */
 #clock {
-  color: @tertiary;
   margin-right: 0px;
 }
 
@@ -121,7 +119,6 @@ window#waybar {
 /* Power */
 #custom-power {
   font-family: "Symbols Nerd Font", "JetBrainsMono Nerd Font", sans-serif;
-  color: @tertiary;
   margin-left: 0px;
 }
 
