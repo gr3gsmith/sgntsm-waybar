@@ -27,31 +27,29 @@ window#waybar {
   background: @surface_container;
   opacity: 1;
   border-radius: 9999px;
-  padding: 0px;
   margin: 0 8px;
 }
 
 #workspaces button {
   background: transparent;
   color: @primary;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
   border-radius: 9999px;
   margin: 0;
-  transition: background 0.3s ease, padding 0.3s ease;
+  transition: background 0.3s ease, padding 0.2s ease, color 0.3s ease;
 }
 
 #workspaces button:hover {
   color: @primary_container;
-  padding: 0px 16px;
+  padding: 0px 18px;
 }
 
-/* Active workspace fills height of pill */
 #workspaces button.active {
   background: @primary_container;
   color: @on_primary_container;
-  border-radius: 9999px; /* full height + edges */
-  padding: 0px 16px;
+  border-radius: 9999px;
+  padding: 0px 18px;
 }
 
 /* ===== Floating Pills ===== */
