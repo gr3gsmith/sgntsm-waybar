@@ -20,5 +20,5 @@ elif [ "$temp" -ge 70 ]; then
 fi
 
 # Output JSON for Waybar
-echo "{\"text\": \"󰢮  ${util}% ${icon} ${temp}°C\", \"class\": \"$class\"}"
+echo "{\"text\": \"󰢮   ${util}%  ${icon}  ${temp}°C\", \"class\": \"$class\"}"
 

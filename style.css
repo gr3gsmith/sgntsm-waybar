@@ -2,7 +2,7 @@
 
 * {
   border: none;
-  font-family: "RobotoMono Nerd Font", sans-serif;
+  font-family: "Roboto Nerd Font", sans-serif;
   font-size: 12px;
   min-height: 0;
   box-shadow: none;
@@ -106,12 +106,6 @@ window#waybar {
   color: @on_error_container;
 }
 
-/* Tray */
-#tray {
-  background: @surface_container_low;
-  padding: 0px 10px;
-}
-
 /* Power */
 #custom-power {
   font-family: "Symbols Nerd Font", "JetBrainsMono Nerd Font", sans-serif;
@@ -121,4 +115,22 @@ window#waybar {
 #custom-power:hover {
   background: @primary_container;
   color: @on_primary_container;
+}
+
+/* ===== Tray menus ===== */
+#tray {
+  opacity: 0.8;
+  padding: 0px 10px;
+}
+
+#tray menu {
+  border-style: solid;
+  border-width: 2px;
+  border-color: @primary_container;
+  background-color: @surface_container_low;
+  color: @primary;
+  border-radius: 10px;
+  padding: 8px;
+  /* Doesn't seem to work here */
+  /* opacity: 0.8; */
 }
