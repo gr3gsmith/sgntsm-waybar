@@ -9,6 +9,7 @@
     ],
 
     "modules-right": [
+        "custom/notifications",
         "custom/gpu-monitor",
         // "temperature",
         "custom/cpu-monitor",
@@ -18,6 +19,7 @@
     // Include module configuration files.
     "include": [
         "~/.config/waybar/modules/power.jsonc",
+        "~/.config/waybar/modules/notifications.jsonc",
         "~/.config/waybar/modules/gpu.jsonc",
         "~/.config/waybar/modules/cpu.jsonc",
         "~/.config/waybar/modules/tray.jsonc",

@@ -52,6 +52,7 @@ window#waybar {
 #clock,
 #mpris,
 #tray,
+#custom-notifications,
 #custom-gpu-monitor,
 #custom-cpu-monitor,
 #custom-power {
@@ -61,7 +62,7 @@ window#waybar {
   border-radius: 9999px;
   padding: 3px 14px;
   margin: 0 8px;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease, opacity 0.5s ease;
   border-style: solid;
   border-width: 2px;
   border-color: alpha(@surface_variant, 0.8)
@@ -76,6 +77,26 @@ window#waybar {
 #mpris {
   background: @tertiary_container;
   color: @on_tertiary_container;
+}
+
+/* Notifications */
+#custom-notifications {
+  font-family: "Symbols Nerd Font", "Roboto Nerd Font", sans-serif;
+  opacity: 0;
+}
+
+#custom-notifications:hover {
+  opacity: 1;
+}
+
+#custom-notifications.notification,
+#custom-notifications.dnd-notification,
+#custom-notifications.dnd-none,
+#custom-notifications.inhibited-notification,
+#custom-notifiactions.inhibited-none,
+#custom-notifications.dnd-inhibited-notification,
+#custom-notifications.dnd-inhibited-none {
+  opacity: 1;
 }
 
 /* Warm temperature class */
@@ -104,7 +125,7 @@ window#waybar {
 
 /* Power */
 #custom-power {
-  font-family: "Symbols Nerd Font", "JetBrainsMono Nerd Font", sans-serif;
+  font-family: "Symbols Nerd Font", "Roboto Nerd Font", sans-serif;
   margin-left: 4px;
 }
 
