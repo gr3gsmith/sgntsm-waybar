@@ -80,15 +80,13 @@ window#waybar {
 }
 
 /* Notifications */
+/* Hide when default state with no notifications. */
 #custom-notifications {
   font-family: "Symbols Nerd Font", "Roboto Nerd Font", sans-serif;
   opacity: 0;
 }
 
-#custom-notifications:hover {
-  opacity: 1;
-}
-
+#custom-notifications:hover,
 #custom-notifications.notification,
 #custom-notifications.dnd-notification,
 #custom-notifications.dnd-none,
