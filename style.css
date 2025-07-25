@@ -55,7 +55,8 @@ window#waybar {
 #custom-notifications,
 #custom-gpu-monitor,
 #custom-cpu-monitor,
-#custom-power {
+#custom-power,
+#custom-music {
   background: alpha(@surface_container, 0.7);
   opacity: 1;
   color: @primary;

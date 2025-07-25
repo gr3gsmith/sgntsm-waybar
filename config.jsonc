@@ -8,6 +8,10 @@
         "tray",
     ],
 
+    "modules-center": [
+        "custom/music",
+    ],
+
     "modules-right": [
         "custom/notifications",
         "custom/gpu-monitor",
@@ -24,6 +28,7 @@
         "~/.config/waybar/modules/cpu.jsonc",
         "~/.config/waybar/modules/tray.jsonc",
         "~/.config/waybar/modules/clock.jsonc",
+        "~/.config/waybar/modules/music.jsonc",
     ],
 }
 

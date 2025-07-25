@@ -1,0 +1,12 @@
+{
+  "custom/music": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/music.sh",
+    "interval": 3,
+    "return-type": "json",
+    "on-click": "playerctl -p YoutubeMusic play-pause",
+    "on-click-right": "playerctl -p YoutubeMusic next",
+    "on-click-middle": "playerctl -p YoutubeMusic previous",
+    "tooltip": true
+  }
+}
