@@ -10,6 +10,7 @@
 
     "modules-center": [
         "custom/music",
+        "custom/yt-music-play-pause",
     ],
 
     "modules-right": [
@@ -29,6 +30,7 @@
         "~/.config/waybar/modules/tray.jsonc",
         "~/.config/waybar/modules/clock.jsonc",
         "~/.config/waybar/modules/music.jsonc",
+        "~/.config/waybar/modules/yt-music-play-pause.jsonc",
     ],
 }
 

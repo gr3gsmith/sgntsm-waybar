@@ -1,0 +1,10 @@
+{
+  "custom/yt-music-play-pause": {
+    "format": "{}",  // will be filled by script output
+    "return-type": "json",
+    "tooltip": false,
+    "interval": 3,
+    "exec": "~/.config/waybar/scripts/yt-music-playpause-toggle.sh",
+    "on-click": "playerctl play-pause -p YoutubeMusic"
+  }
+}
