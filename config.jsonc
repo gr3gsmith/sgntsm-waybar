@@ -9,7 +9,7 @@
     ],
 
     "modules-center": [
-        "custom/music",
+        "custom/yt-music-info",
         "custom/yt-music-play-pause",
     ],
 
@@ -29,7 +29,7 @@
         "~/.config/waybar/modules/cpu.jsonc",
         "~/.config/waybar/modules/tray.jsonc",
         "~/.config/waybar/modules/clock.jsonc",
-        "~/.config/waybar/modules/music.jsonc",
+        "~/.config/waybar/modules/yt-music-info.jsonc",
         "~/.config/waybar/modules/yt-music-play-pause.jsonc",
     ],
 }

@@ -1,7 +1,7 @@
 {
-  "custom/music": {
+  "custom/yt-music-info": {
     "format": "{}",
-    "exec": "~/.config/waybar/scripts/music.sh",
+    "exec": "~/.config/waybar/scripts/yt-music-info.sh",
     "interval": 3,
     "return-type": "json",
     "on-click": "playerctl -p YoutubeMusic play-pause",

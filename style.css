@@ -56,7 +56,7 @@ window#waybar {
 #custom-gpu-monitor,
 #custom-cpu-monitor,
 #custom-power,
-#custom-music,
+#custom-yt-music-info,
 #custom-yt-music-play-pause {
   background: alpha(@surface_container, 0.7);
   opacity: 1;
