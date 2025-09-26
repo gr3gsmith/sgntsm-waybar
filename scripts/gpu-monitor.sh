@@ -1,9 +1,17 @@
 #!/bin/bash
 
-# Get GPU utilization and temperature (without %, °C)
-read -r util temp <<< $(nvidia-smi --query-gpu=utilization.gpu,temperature.gpu --format=csv,noheader,nounits | tr -d ' %' | sed 's/,/ /')
+# Dump GPU data as json.
+amdgpu_json=$(amdgpu_top -J -n 1)
 
-# Format utilisation to always be at least 2 digits.
+# Extract the temperature and format it to 2 digits.
+temp=$(jq '.devices[0].gpu_metrics.temperature_hotspot' <<< "$amdgpu_json")
+temp=$(printf "%2d" "$temp")
+
+# Alternative method for finding temperature.
+# temp=$(sensors -j | jq '.["amdgpu-pci-0300"].junction.temp2_input')
+
+# Extract utilisation and format it to two digits.
+util=$(jq '.devices[0].gpu_activity.GFX.value' <<< "$amdgpu_json")
 util=$(printf "%2d" "$util")
 
 # Default values
