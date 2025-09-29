@@ -148,6 +148,5 @@ window#waybar {
   color: @primary;
   border-radius: 10px;
   padding: 8px;
-  /* Doesn't seem to work here */
-  /* opacity: 0.8; */
+  opacity: 0.8;
 }
