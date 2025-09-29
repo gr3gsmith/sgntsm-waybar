@@ -9,6 +9,7 @@
     ],
 
     "modules-center": [
+        "hyprland/submap",
         "custom/yt-music-info",
         "custom/yt-music-play-pause",
     ],
@@ -29,6 +30,7 @@
         "~/.config/waybar/modules/cpu.jsonc",
         "~/.config/waybar/modules/tray.jsonc",
         "~/.config/waybar/modules/clock.jsonc",
+        "~/.config/waybar/modules/submap.jsonc",
         "~/.config/waybar/modules/yt-music-info.jsonc",
         "~/.config/waybar/modules/yt-music-play-pause.jsonc",
     ],
