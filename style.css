@@ -76,6 +76,12 @@ window#waybar {
   margin-right: 4px;
 }
 
+/* Submap */
+#submap {
+  background: @primary_container;
+  color: @on_primary_container;
+}
+
 /* MPRIS */
 #mpris {
   background: @tertiary_container;
