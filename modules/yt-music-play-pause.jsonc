@@ -5,6 +5,6 @@
     "tooltip": false,
     "interval": 3,
     "exec": "~/.config/waybar/scripts/yt-music-playpause-toggle.sh",
-    "on-click": "playerctl play-pause -p YoutubeMusic"
+    "on-click": "~/.config/waybar/scripts/yt-music-cmd.sh play-pause"
   }
 }
