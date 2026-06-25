@@ -1,7 +1,8 @@
 {
     "hyprland/workspaces": {
         "format": "{name}",
-        "show-special": true
+        "show-special": true,
+        "ignore-workspaces": ["special:audio"]
     }
 }
 
