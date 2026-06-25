@@ -16,6 +16,7 @@
 
     "modules-right": [
         "custom/notifications",
+        "custom/audio-output",
         "custom/gpu-monitor",
         // "temperature",
         "custom/cpu-monitor",
@@ -27,6 +28,7 @@
         "~/.config/waybar/modules/power.jsonc",
         "~/.config/waybar/modules/workspaces.jsonc",
         "~/.config/waybar/modules/notifications.jsonc",
+        "~/.config/waybar/modules/audio-output.jsonc",
         "~/.config/waybar/modules/gpu.jsonc",
         "~/.config/waybar/modules/cpu.jsonc",
         "~/.config/waybar/modules/tray.jsonc",

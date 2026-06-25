@@ -1,0 +1,10 @@
+{
+  "custom/audio-output": {
+    "format": "{}",  // filled by script output
+    "return-type": "json",
+    "interval": 3,
+    "exec": "~/.config/waybar/scripts/audio-output.sh status",
+    "on-click": "~/.config/waybar/scripts/audio-output.sh toggle",
+    "on-click-right": "~/.config/waybar/scripts/audio-output.sh per-app"
+  }
+}

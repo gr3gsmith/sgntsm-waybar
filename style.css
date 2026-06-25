@@ -57,6 +57,7 @@ window#waybar {
 #custom-cpu-monitor,
 #custom-power,
 #submap,
+#custom-audio-output,
 #custom-yt-music-info,
 #custom-yt-music-play-pause {
   background: alpha(@surface_container, 0.7);
@@ -74,6 +75,11 @@ window#waybar {
 /* Clock */
 #clock {
   margin-right: 4px;
+}
+
+/* Audio output */
+#custom-audio-output {
+  font-family: "Symbols Nerd Font", "Roboto Nerd Font", sans-serif;
 }
 
 /* Submap */
