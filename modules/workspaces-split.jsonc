@@ -1,0 +1,43 @@
+// Per-monitor workspaces -- replacement for the built-in hyprland/workspaces.
+// Two groups, one per monitor bar (see the two-bar config.jsonc). Each lists
+// ALL workspaces 1-10, but workspaces.sh only renders a button when that
+// workspace is currently on the group's monitor (passed as the 3rd arg). So
+// DP-2 shows odd, DP-1 shows even -- and when monitor-toggle collapses both
+// onto one monitor, that monitor's bar shows them all.
+//
+// Revert: in config.jsonc include workspaces-custom.jsonc (combined, single bar)
+// or workspaces.jsonc (built-in). The hidden ws-engine streams Hyprland events
+// and refreshes the buttons (signal 1 = SIGRTMIN+1).
+{
+  "group/workspaces-dp2": {
+    "orientation": "horizontal",
+    "modules": [ "custom/ws-engine", "custom/ws-dp2-1", "custom/ws-dp2-2", "custom/ws-dp2-3", "custom/ws-dp2-4", "custom/ws-dp2-5", "custom/ws-dp2-6", "custom/ws-dp2-7", "custom/ws-dp2-8", "custom/ws-dp2-9", "custom/ws-dp2-10", "custom/ws-dp2-magic" ]
+  },
+  "group/workspaces-dp1": {
+    "orientation": "horizontal",
+    "modules": [ "custom/ws-engine", "custom/ws-dp1-1", "custom/ws-dp1-2", "custom/ws-dp1-3", "custom/ws-dp1-4", "custom/ws-dp1-5", "custom/ws-dp1-6", "custom/ws-dp1-7", "custom/ws-dp1-8", "custom/ws-dp1-9", "custom/ws-dp1-10", "custom/ws-dp1-magic" ]
+  },
+  "custom/ws-engine": { "exec": "~/.config/waybar/scripts/workspaces-watch.py", "return-type": "json" },
+  "custom/ws-dp2-1": { "exec": "~/.config/waybar/scripts/workspaces.sh button 1 DP-2", "on-click": "~/.config/waybar/scripts/workspaces.sh switch 1", "return-type": "json", "interval": "once", "signal": 1 },
+  "custom/ws-dp2-2": { "exec": "~/.config/waybar/scripts/workspaces.sh button 2 DP-2", "on-click": "~/.config/waybar/scripts/workspaces.sh switch 2", "return-type": "json", "interval": "once", "signal": 1 },
+  "custom/ws-dp2-3": { "exec": "~/.config/waybar/scripts/workspaces.sh button 3 DP-2", "on-click": "~/.config/waybar/scripts/workspaces.sh switch 3", "return-type": "json", "interval": "once", "signal": 1 },
+  "custom/ws-dp2-4": { "exec": "~/.config/waybar/scripts/workspaces.sh button 4 DP-2", "on-click": "~/.config/waybar/scripts/workspaces.sh switch 4", "return-type": "json", "interval": "once", "signal": 1 },
+  "custom/ws-dp2-5": { "exec": "~/.config/waybar/scripts/workspaces.sh button 5 DP-2", "on-click": "~/.config/waybar/scripts/workspaces.sh switch 5", "return-type": "json", "interval": "once", "signal": 1 },
+  "custom/ws-dp2-6": { "exec": "~/.config/waybar/scripts/workspaces.sh button 6 DP-2", "on-click": "~/.config/waybar/scripts/workspaces.sh switch 6", "return-type": "json", "interval": "once", "signal": 1 },
+  "custom/ws-dp2-7": { "exec": "~/.config/waybar/scripts/workspaces.sh button 7 DP-2", "on-click": "~/.config/waybar/scripts/workspaces.sh switch 7", "return-type": "json", "interval": "once", "signal": 1 },
+  "custom/ws-dp2-8": { "exec": "~/.config/waybar/scripts/workspaces.sh button 8 DP-2", "on-click": "~/.config/waybar/scripts/workspaces.sh switch 8", "return-type": "json", "interval": "once", "signal": 1 },
+  "custom/ws-dp2-9": { "exec": "~/.config/waybar/scripts/workspaces.sh button 9 DP-2", "on-click": "~/.config/waybar/scripts/workspaces.sh switch 9", "return-type": "json", "interval": "once", "signal": 1 },
+  "custom/ws-dp2-10": { "exec": "~/.config/waybar/scripts/workspaces.sh button 10 DP-2", "on-click": "~/.config/waybar/scripts/workspaces.sh switch 10", "return-type": "json", "interval": "once", "signal": 1 },
+  "custom/ws-dp2-magic": { "exec": "~/.config/waybar/scripts/workspaces.sh button magic DP-2", "on-click": "~/.config/waybar/scripts/workspaces.sh switch magic", "return-type": "json", "interval": "once", "signal": 1 },
+  "custom/ws-dp1-1": { "exec": "~/.config/waybar/scripts/workspaces.sh button 1 DP-1", "on-click": "~/.config/waybar/scripts/workspaces.sh switch 1", "return-type": "json", "interval": "once", "signal": 1 },
+  "custom/ws-dp1-2": { "exec": "~/.config/waybar/scripts/workspaces.sh button 2 DP-1", "on-click": "~/.config/waybar/scripts/workspaces.sh switch 2", "return-type": "json", "interval": "once", "signal": 1 },
+  "custom/ws-dp1-3": { "exec": "~/.config/waybar/scripts/workspaces.sh button 3 DP-1", "on-click": "~/.config/waybar/scripts/workspaces.sh switch 3", "return-type": "json", "interval": "once", "signal": 1 },
+  "custom/ws-dp1-4": { "exec": "~/.config/waybar/scripts/workspaces.sh button 4 DP-1", "on-click": "~/.config/waybar/scripts/workspaces.sh switch 4", "return-type": "json", "interval": "once", "signal": 1 },
+  "custom/ws-dp1-5": { "exec": "~/.config/waybar/scripts/workspaces.sh button 5 DP-1", "on-click": "~/.config/waybar/scripts/workspaces.sh switch 5", "return-type": "json", "interval": "once", "signal": 1 },
+  "custom/ws-dp1-6": { "exec": "~/.config/waybar/scripts/workspaces.sh button 6 DP-1", "on-click": "~/.config/waybar/scripts/workspaces.sh switch 6", "return-type": "json", "interval": "once", "signal": 1 },
+  "custom/ws-dp1-7": { "exec": "~/.config/waybar/scripts/workspaces.sh button 7 DP-1", "on-click": "~/.config/waybar/scripts/workspaces.sh switch 7", "return-type": "json", "interval": "once", "signal": 1 },
+  "custom/ws-dp1-8": { "exec": "~/.config/waybar/scripts/workspaces.sh button 8 DP-1", "on-click": "~/.config/waybar/scripts/workspaces.sh switch 8", "return-type": "json", "interval": "once", "signal": 1 },
+  "custom/ws-dp1-9": { "exec": "~/.config/waybar/scripts/workspaces.sh button 9 DP-1", "on-click": "~/.config/waybar/scripts/workspaces.sh switch 9", "return-type": "json", "interval": "once", "signal": 1 },
+  "custom/ws-dp1-10": { "exec": "~/.config/waybar/scripts/workspaces.sh button 10 DP-1", "on-click": "~/.config/waybar/scripts/workspaces.sh switch 10", "return-type": "json", "interval": "once", "signal": 1 },
+  "custom/ws-dp1-magic": { "exec": "~/.config/waybar/scripts/workspaces.sh button magic DP-1", "on-click": "~/.config/waybar/scripts/workspaces.sh switch magic", "return-type": "json", "interval": "once", "signal": 1 }
+}

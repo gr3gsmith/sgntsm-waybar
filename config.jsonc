@@ -1,41 +1,82 @@
 // -*- mode: jsonc -*-
-{
+// TWO bar configs, one per monitor, so each monitor shows ITS OWN workspaces.
+// The only per-bar difference is the workspace group in modules-left:
+//   DP-2 -> group/workspaces-dp2   (normally the odd workspaces)
+//   DP-1 -> group/workspaces-dp1   (normally the even workspaces)
+// Buttons are driven by each workspace's CURRENT monitor (see workspaces.sh), so
+// when ~/bin/monitor-toggle disables DP-2 and everything moves to DP-1, the DP-1
+// bar shows them all and the DP-2 bar simply disappears with its output.
+//
+// To revert to a single mirrored bar: restore config.jsonc.single-bar.bak
+//   cp config.jsonc.single-bar.bak config.jsonc
+// (that version includes the combined workspaces-custom.jsonc).
+[
+  {
+    "output": "DP-2",
     "margin-top": 4,
-
     "modules-left": [
-        "custom/power",
-        "hyprland/workspaces",
-        "tray",
+      "custom/power",
+      "group/workspaces-dp2",
+      "tray",
     ],
-
     "modules-center": [
-        "hyprland/submap",
-        "custom/yt-music-info",
-        "custom/yt-music-play-pause",
+      "hyprland/submap",
+      "custom/yt-music-info",
+      "custom/yt-music-play-pause",
     ],
-
     "modules-right": [
-        "custom/notifications",
-        "custom/audio-output",
-        "custom/gpu-monitor",
-        // "temperature",
-        "custom/cpu-monitor",
-        "clock",
+      "custom/notifications",
+      "custom/audio-output",
+      "custom/gpu-monitor",
+      "custom/cpu-monitor",
+      "clock",
     ],
-
-    // Include module configuration files.
     "include": [
-        "~/.config/waybar/modules/power.jsonc",
-        "~/.config/waybar/modules/workspaces.jsonc",
-        "~/.config/waybar/modules/notifications.jsonc",
-        "~/.config/waybar/modules/audio-output.jsonc",
-        "~/.config/waybar/modules/gpu.jsonc",
-        "~/.config/waybar/modules/cpu.jsonc",
-        "~/.config/waybar/modules/tray.jsonc",
-        "~/.config/waybar/modules/clock.jsonc",
-        "~/.config/waybar/modules/submap.jsonc",
-        "~/.config/waybar/modules/yt-music-info.jsonc",
-        "~/.config/waybar/modules/yt-music-play-pause.jsonc",
+      "~/.config/waybar/modules/power.jsonc",
+      "~/.config/waybar/modules/workspaces-split.jsonc",
+      "~/.config/waybar/modules/notifications.jsonc",
+      "~/.config/waybar/modules/audio-output.jsonc",
+      "~/.config/waybar/modules/gpu.jsonc",
+      "~/.config/waybar/modules/cpu.jsonc",
+      "~/.config/waybar/modules/tray.jsonc",
+      "~/.config/waybar/modules/clock.jsonc",
+      "~/.config/waybar/modules/submap.jsonc",
+      "~/.config/waybar/modules/yt-music-info.jsonc",
+      "~/.config/waybar/modules/yt-music-play-pause.jsonc",
     ],
-}
-
+  },
+  {
+    "output": "DP-1",
+    "margin-top": 4,
+    "modules-left": [
+      "custom/power",
+      "group/workspaces-dp1",
+      "tray",
+    ],
+    "modules-center": [
+      "hyprland/submap",
+      "custom/yt-music-info",
+      "custom/yt-music-play-pause",
+    ],
+    "modules-right": [
+      "custom/notifications",
+      "custom/audio-output",
+      "custom/gpu-monitor",
+      "custom/cpu-monitor",
+      "clock",
+    ],
+    "include": [
+      "~/.config/waybar/modules/power.jsonc",
+      "~/.config/waybar/modules/workspaces-split.jsonc",
+      "~/.config/waybar/modules/notifications.jsonc",
+      "~/.config/waybar/modules/audio-output.jsonc",
+      "~/.config/waybar/modules/gpu.jsonc",
+      "~/.config/waybar/modules/cpu.jsonc",
+      "~/.config/waybar/modules/tray.jsonc",
+      "~/.config/waybar/modules/clock.jsonc",
+      "~/.config/waybar/modules/submap.jsonc",
+      "~/.config/waybar/modules/yt-music-info.jsonc",
+      "~/.config/waybar/modules/yt-music-play-pause.jsonc",
+    ],
+  },
+]

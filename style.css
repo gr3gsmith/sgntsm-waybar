@@ -48,6 +48,62 @@ window#waybar {
   padding: 0px 14px;
 }
 
+/* Custom workspaces module (group/workspaces): the per-workspace buttons are
+   GtkLabels inside the #workspaces group box, so style them as descendants.
+   Mirrors the #workspaces button rules above. Remove if reverting to built-in. */
+#workspaces label {
+  background: transparent;
+  color: @primary;
+  padding: 0px 14px;
+  border-radius: 9999px;
+  margin: 0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+#workspaces label:hover {
+  color: @primary_container;
+}
+
+#workspaces label.ws-active {
+  background: @primary_container;
+  color: @on_primary_container;
+  border-radius: 9999px;
+}
+
+/* Per-monitor split groups (modules/workspaces-split.jsonc): same pill +
+   per-button look as #workspaces above, applied to both monitor groups. */
+#workspaces-dp2,
+#workspaces-dp1 {
+  border-style: solid;
+  border-width: 2px;
+  border-color: alpha(@surface_variant, 0.8);
+  background: alpha(@surface_container, 0.7);
+  opacity: 1;
+  border-radius: 9999px;
+  margin: 0 8px;
+}
+
+#workspaces-dp2 label,
+#workspaces-dp1 label {
+  background: transparent;
+  color: @primary;
+  padding: 0px 14px;
+  border-radius: 9999px;
+  margin: 0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+#workspaces-dp2 label:hover,
+#workspaces-dp1 label:hover {
+  color: @primary_container;
+}
+
+#workspaces-dp2 label.ws-active,
+#workspaces-dp1 label.ws-active {
+  background: @primary_container;
+  color: @on_primary_container;
+}
+
 /* ===== Floating Pills ===== */
 #clock,
 #mpris,
