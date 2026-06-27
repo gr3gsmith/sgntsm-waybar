@@ -1,7 +1,7 @@
 {
     "hyprland/submap": {
         "format": "Submap: {}",
-        "on-click": "hyprctl dispatch submap reset"
+        "on-click": "hyprctl dispatch 'hl.dsp.submap(\"reset\")'"
     }
 }
 

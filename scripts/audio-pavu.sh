@@ -26,8 +26,6 @@ WIN_H=500
 MODULE_CENTER_FROM_RIGHT=360
 TOP_GAP=6   # vertical gap between the bar and the popup
 
-launch_rule="[workspace $SPECIAL silent; float; size $WIN_W $WIN_H]"
-
 addr_on_special() {
   hyprctl clients -j | jq -r --arg c "$CLASS" --arg w "$SPECIAL" \
     'first(.[] | select(.class == $c and .workspace.name == $w) | .address) // empty'
@@ -37,14 +35,14 @@ addr_on_special() {
 # to launch it (so the first toggle can position it correctly).
 addr=$(addr_on_special)
 if [ -z "$addr" ]; then
-  hyprctl dispatch exec "$launch_rule" "uwsm app -- pavucontrol" >/dev/null
+  hyprctl dispatch "hl.dsp.exec_cmd('uwsm app -- pavucontrol', { workspace = '$SPECIAL silent', float = true, size = {$WIN_W, $WIN_H} })" >/dev/null
   for _ in $(seq 1 30); do
     addr=$(addr_on_special)
     [ -n "$addr" ] && break
     sleep 0.1
   done
   # Tag the resident popup so the noanim window rule applies only to it.
-  [ -n "$addr" ] && hyprctl dispatch tagwindow "+audiopopup address:$addr" >/dev/null
+  [ -n "$addr" ] && hyprctl dispatch "hl.dsp.window.tag({ tag = '+audiopopup', window = 'address:$addr' })" >/dev/null
 fi
 
 # Autostart path: leave it hidden and ready.
@@ -53,7 +51,7 @@ fi
 # If the popup is already showing on the focused monitor, just hide it.
 focused_special=$(hyprctl monitors -j | jq -r 'first(.[] | select(.focused)) | .specialWorkspace.name')
 if [ "$focused_special" = "$SPECIAL" ]; then
-  hyprctl dispatch togglespecialworkspace "$WS"
+  hyprctl dispatch "hl.dsp.workspace.toggle_special('$WS')"
   exit 0
 fi
 
@@ -65,8 +63,8 @@ if [ -n "$addr" ]; then
     jq -r 'first(.[] | select(.focused)) | "\(.x) \(.y) \(.width) \([.reserved[]] | max)"')
   x=$(( mx + mw - MODULE_CENTER_FROM_RIGHT - WIN_W / 2 ))
   y=$(( my + rtop + TOP_GAP ))
-  hyprctl dispatch movewindowpixel "exact $x $y,address:$addr"
-  hyprctl --batch "dispatch togglespecialworkspace $WS ; dispatch focuswindow address:$addr"
+  hyprctl dispatch "hl.dsp.window.move({ x = $x, y = $y, relative = false, window = 'address:$addr' })"
+  hyprctl --batch "dispatch hl.dsp.workspace.toggle_special('$WS') ; dispatch hl.dsp.focus({ window = 'address:$addr' })"
 else
-  hyprctl dispatch togglespecialworkspace "$WS"
+  hyprctl dispatch "hl.dsp.workspace.toggle_special('$WS')"
 fi

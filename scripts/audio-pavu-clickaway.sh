@@ -34,7 +34,7 @@ fi
 # if the popup is on another monitor, focus it to toggle, then return focus.
 focused=$(hyprctl monitors -j | jq -r 'first(.[] | select(.focused)) | .name')
 if [ "$focused" = "$showing" ]; then
-  hyprctl dispatch togglespecialworkspace "$WS"
+  hyprctl dispatch "hl.dsp.workspace.toggle_special('$WS')"
 else
-  hyprctl --batch "dispatch focusmonitor $showing ; dispatch togglespecialworkspace $WS ; dispatch focusmonitor $focused"
+  hyprctl --batch "dispatch hl.dsp.focus({ monitor = '$showing' }) ; dispatch hl.dsp.workspace.toggle_special('$WS') ; dispatch hl.dsp.focus({ monitor = '$focused' })"
 fi
