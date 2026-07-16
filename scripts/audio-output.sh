@@ -1,23 +1,25 @@
 #!/usr/bin/env bash
-# Audio output switcher for the two outputs I use day to day: the Pebble
+# Audio output switcher for the two outputs I use day to day: the USB
 # speakers and the MiniFuse interface (headphones). Shared by the Waybar
 # module and a Hyprland keybind.
 #
 # Usage:
 #   audio-output.sh status    Emit Waybar JSON for the current default output.
-#   audio-output.sh toggle    Flip the default output between Pebble and MiniFuse,
+#   audio-output.sh toggle    Flip the default output between speakers and MiniFuse,
 #                             moving every active stream to the new output.
 #   audio-output.sh per-app   rofi flow to send a single app to a chosen output.
 
 # Stable name patterns for my two preferred sinks. Matched against the sink
 # name (column 2 of `pactl list sinks short`) so they survive ID changes and
-# reconnects. The MiniFuse exposes several sinks; Line1 is its main output.
-PEBBLE_PAT='Pebble'
+# reconnects. The MiniFuse exposes several sinks; Line1 is its main output. The
+# USB speakers report a misleading "Mpow HC5 Headset" description, but their
+# sink name carries the stable QTIL_LP-UNF identifier.
+SPEAKER_PAT='QTIL_LP-UNF'
 MINIFUSE_PAT='MiniFuse.*Line1__sink'
 
 # Icons, defined via \u escapes so the glyph codepoints survive editing.
 # f028 = volume-up (speakers), f025 = headphones, f026 = volume-off (other).
-PEBBLE_ICON=$(printf '')
+SPEAKER_ICON=$(printf '')
 MINIFUSE_ICON=$(printf '')
 UNKNOWN_ICON=$(printf '')
 
@@ -35,13 +37,13 @@ move_all_streams() {
 }
 
 cmd_status() {
-  local current pebble minifuse icon class label
+  local current speaker minifuse icon class label
   current=$(pactl get-default-sink)
-  pebble=$(sink_by_pattern "$PEBBLE_PAT")
+  speaker=$(sink_by_pattern "$SPEAKER_PAT")
   minifuse=$(sink_by_pattern "$MINIFUSE_PAT")
 
-  if [[ -n "$pebble" && "$current" == "$pebble" ]]; then
-    icon="$PEBBLE_ICON"; class="pebble"; label="Pebble speakers"
+  if [[ -n "$speaker" && "$current" == "$speaker" ]]; then
+    icon="$SPEAKER_ICON"; class="speaker"; label="Speakers"
   elif [[ -n "$minifuse" && "$current" == "$minifuse" ]]; then
     icon="$MINIFUSE_ICON"; class="minifuse"; label="MiniFuse headphones"
   else
@@ -55,17 +57,17 @@ cmd_status() {
 }
 
 cmd_toggle() {
-  local current pebble minifuse target
+  local current speaker minifuse target
   current=$(pactl get-default-sink)
-  pebble=$(sink_by_pattern "$PEBBLE_PAT")
+  speaker=$(sink_by_pattern "$SPEAKER_PAT")
   minifuse=$(sink_by_pattern "$MINIFUSE_PAT")
 
-  # If currently on Pebble, switch to MiniFuse; otherwise switch to Pebble.
-  # This means a third device also toggles back to Pebble.
-  if [[ -n "$pebble" && "$current" == "$pebble" ]]; then
+  # If currently on speakers, switch to MiniFuse; otherwise switch to speakers.
+  # This means a third device also toggles back to speakers.
+  if [[ -n "$speaker" && "$current" == "$speaker" ]]; then
     target="$minifuse"
   else
-    target="$pebble"
+    target="$speaker"
   fi
 
   if [[ -z "$target" ]]; then
