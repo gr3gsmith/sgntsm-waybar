@@ -26,7 +26,6 @@
     ],
     "modules-right": [
       "custom/notifications",
-      // "custom/audio-output",
       "custom/gpu-monitor",
       "custom/cpu-monitor",
       "clock",
@@ -35,7 +34,6 @@
       "~/.config/waybar/modules/power.jsonc",
       "~/.config/waybar/modules/workspaces-split.jsonc",
       "~/.config/waybar/modules/notifications.jsonc",
-      "~/.config/waybar/modules/audio-output.jsonc",
       "~/.config/waybar/modules/gpu.jsonc",
       "~/.config/waybar/modules/cpu.jsonc",
       "~/.config/waybar/modules/tray.jsonc",
@@ -60,7 +58,6 @@
     ],
     "modules-right": [
       "custom/notifications",
-      // "custom/audio-output",
       "custom/gpu-monitor",
       "custom/cpu-monitor",
       "clock",
@@ -69,7 +66,6 @@
       "~/.config/waybar/modules/power.jsonc",
       "~/.config/waybar/modules/workspaces-split.jsonc",
       "~/.config/waybar/modules/notifications.jsonc",
-      "~/.config/waybar/modules/audio-output.jsonc",
       "~/.config/waybar/modules/gpu.jsonc",
       "~/.config/waybar/modules/cpu.jsonc",
       "~/.config/waybar/modules/tray.jsonc",
