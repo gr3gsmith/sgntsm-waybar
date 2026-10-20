@@ -10,7 +10,8 @@
 #   workspaces.sh button N [MON]   Emit Waybar JSON for workspace N.
 #   workspaces.sh button magic [MON]
 #       If MON is given (per-monitor bars, see modules/workspaces-split.jsonc),
-#       the button shows ONLY when workspace N is currently on monitor MON. That
+#       the button shows ONLY when workspace N is currently on monitor MON (for
+#       magic: when it has windows on any monitor, or is open on MON). That
 #       way each monitor's bar shows its own workspaces, and when monitor-toggle
 #       collapses everything onto one monitor, that monitor's bar shows them all.
 #       With no MON (the combined module, modules/workspaces-custom.jsonc), it
@@ -51,9 +52,13 @@ case "$cmd" in
 
     if [ "$arg" = magic ]; then
       if [ -n "$mon" ]; then
-        # Per-monitor: show only when magic is visible on THIS monitor.
-        active=$(hyprctl monitors -j | jq -r --arg m "$mon" 'any(.[]; .name == $m and .specialWorkspace.name == "special:magic")')
+        # Per-monitor: highlighted when magic is visible on THIS monitor;
+        # otherwise shown (unhighlighted) on every bar whenever it has
+        # windows, since toggling it opens it on the current monitor anyway.
+        active=$(hyprctl monitors -j   | jq -r --arg m "$mon" 'any(.[]; .name == $m and .specialWorkspace.name == "special:magic")')
+        exists=$(hyprctl workspaces -j | jq -r 'any(.[]; .name == "special:magic" and .windows > 0)')
         if [ "$active" = true ]; then printf '{"text":"★","class":"ws-active"}\n'
+        elif [ "$exists" = true ]; then printf '{"text":"★"}\n'
         else printf '{"text":""}\n'; fi
       else
         active=$(hyprctl monitors -j   | jq -r 'any(.[]; .specialWorkspace.name == "special:magic")')
